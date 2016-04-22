@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="template.xhtml">
+
+	<ui:define name = "menu">
+		<p:toolbarGroup align="left">  
+	 			
+    				<p:menuButton value="#{label.menu_title}">  
+    					<p:menuitem value="#{label.menu_item_save}"  />  
+        				<p:menuitem value="#{label.menu_item_list}" />  
+        				<p:menuitem value="#{label.menu_item_delete}" />  
+       					<p:separator />  
+       					<p:menuitem value="#{label.menu_item_exit}" />  
+    				</p:menuButton>  
+		</p:toolbarGroup>		
+	 		
+	</ui:define>
+
+	<ui:define name="corpo">
+		 
+	<!-- Entrada de dados dos  usuários-->
+	<h:form>
+	<p:growl id="growl" showDetail="false" sticky="true" globalOnly="true"/>
+	
+	 
+	<p:outputPanel id="cadastro"> 
+		
+		<p:panel rendered="#{contatoForm.saveState}" header="#{label.register_title}" style="width: 450px;">
+			<h:panelGrid columns="2" rendered="#{contatoForm.saveState}">
+				<h:outputText value="" />
+				<h:inputHidden value="#{contatoForm.pessoa.id}" />
+				
+				
+				<h:outputText value="#{label.register_name}: " />
+				<p:columnGroup>
+					<p:inputText value="#{contatoForm.pessoa.nome}" style="width: 250px;" id="nome" label="#{label.register_name}" required="true"/>
+					<br />
+					<p:message for="nome"  display="text"/>
+				</p:columnGroup>
+				
+				<h:outputText value="#{label.register_mail}: " />
+				<p:columnGroup>
+					<p:inputText value="#{contatoForm.pessoa.email}" style="width: 250px;" id="email" label="#{label.register_mail}" required="true">
+						<f:validator validatorId="emailValidator" />
+					</p:inputText>
+					<br />
+					<p:message for="email" display="text"/>
+				</p:columnGroup>
+				
+				<h:outputText value="#{label.register_phone}: " />
+				<p:inputMask value="#{contatoForm.pessoa.telefone}" mask="(99) 9999-9999" id="telefone" label="Telefone"/>
+				
+				<h:outputText value="#{label.register_rapid}: " />
+				<p:columnGroup>
+					<p:inputText value="#{contatoForm.pessoa.discagemRapida}" id="speed_dial" label="#{label.register_rapid}" style="width: 20px">
+						<f:validateLongRange minimum="1" maximum="9" />
+					</p:inputText>
+					<br />
+					<p:message for="speed_dial" display="text"/>
+				</p:columnGroup>
+				
+				<h:outputText value="#{label.register_favorit}: " />
+				<p:selectBooleanCheckbox value ="#{contatoForm.pessoa.favorito}" />
+				
+				<h:outputText value="#{label.register_birthday}: " />
+				<p:calendar value="#{contatoForm.pessoa.aniversario}" effect="fade" mask="99/99/9999"
+					pattern="dd/MM/yyyy" id="aniversario" label="#{label.register_birthday}" locale="#{international.lang}"/>
+				
+				<h:outputText value="#{label.register_address}: " />
+				<p:inputText value="#{contatoForm.pessoa.endereco.rua}" id="address"  style="width: 300px" label="#{label.register_address}"/>
+				
+				<h:outputText value="#{label.register_group}: " />
+				<p:selectOneMenu value = "#{contatoForm.pessoa.grupo.id}" style="width: 100px;" effect="fade">
+					<f:selectItems value="#{contatoForm.grupos}" var="item" itemLabel="#{item.nome}" itemValue="#{item.id}"/>
+				</p:selectOneMenu>
+			</h:panelGrid>
+		</p:panel>
+		<br />
+		<br />
+		<p:commandButton value = "#{label.register_button}" action="#{contatoForm.save}" ajax="true" update="@form" rendered="#{contatoForm.saveState}"/>
+		<p:commandButton value="#{label.menu_item_list}" action="#{contatoForm.voltar}" process="@this" update="cadastro,consulta" rendered="#{contatoForm.saveState}" />
+		
+	</p:outputPanel>	
+			
+	<!-- saida dos dados -->	
+		
+		<p:outputPanel id="consulta">
+		
+			<p:dataTable id="grid" value="#{contatoForm.dataModel}" var="item"  rendered="#{!contatoForm.saveState}" resizableColumns="true" emptyMessage="#{label.register_empty}">
+				
+				<f:facet name="header">  
+            		#{label.register_header}
+        		</f:facet> 
+        		
+        		<p:column headerText="#{label.register_id}">
+					<h:outputText value="#{item.id}" />
+				</p:column>
+				
+				<p:column headerText="#{label.register_name}">
+					<h:outputText value="#{item.nome}" />
+				</p:column>
+			
+				<p:column headerText="#{label.register_mail}">
+					<h:outputText value="#{item.email}" />
+				</p:column>
+			
+				<p:column headerText="#{label.register_phone}">
+					<h:outputText value="#{item.telefone}" />
+				</p:column>
+				
+				<p:column headerText="#{label.register_rapid}">
+					<h:outputText value="#{item.discagemRapida}" />
+				</p:column>
+				
+				<p:column headerText="#{label.register_birthday}">
+					<h:outputText value="#{item.aniversario}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>  
+					</h:outputText>
+				</p:column>
+				
+				<p:column headerText="#{label.register_favorit}">
+					<h:outputText value="#{label.state_yes}" rendered="#{item.favorito}"/>
+					<h:outputText value="#{label.state_no}" rendered="#{!item.favorito}"/>
+				</p:column>
+			
+				<p:column headerText="#{label.register_address}">
+					<h:outputText value="#{item.endereco}" />
+				</p:column>
+				
+				<p:column headerText="#{label.register_group}">
+					<h:outputText value="#{item.grupo}" />
+				</p:column>
+				
+				<p:column headerText="">
+					<p:commandButton value="#{label.menu_item_edit}" process="@this,grid" action="#{contatoForm.editar}" update="@form" />
+					<p:commandButton value="#{label.menu_item_delete}" process="@this,grid" action="#{contatoForm.deletar}" update="@form" />
+				</p:column>
+			</p:dataTable>
+			
+			<br />
+			<p:commandButton value="#{label.return_button}" action="#{contatoForm.voltar}" process="@this" update="cadastro,consulta" rendered="#{!contatoForm.saveState}" />
+		</p:outputPanel>
+		
+		
+	</h:form>
+	
+	</ui:define>
+
+</ui:composition>

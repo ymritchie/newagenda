@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="template.xhtml">
+
+	
+
+<ui:define name="corpo">
+	<p:growl id="growl" showDetail="false" life="1500" />
+	
+	<div class="user">
+		<h:form>
+			<h2>#{label.login_title}</h2> <br />
+				<p:panel>
+					<h:panelGrid columns="1">
+						<h:outputText value="#{label.login_user}" />
+						<p:inputText value="#{loginUserForm.user.nomeUser}" id="nome" label="Usuário" style="width: 200px;"/>
+						
+						<h:outputText value="#{label.login_password}" />
+						<p:password value="#{loginUserForm.user.senha}" id="senha" label="Senha" style="width: 200px;" />
+						<br />
+						<p:commandButton value="#{label.login_button}" action="#{loginUserForm.logonUser}" ajax="false" update="growl"/>
+					</h:panelGrid>
+				</p:panel>
+		</h:form>
+				
+	</div>
+			
+</ui:define>
+	
+</ui:composition>

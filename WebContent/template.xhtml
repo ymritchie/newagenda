@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Agenda | Web</title>
+	
+	<link href="/newagenda/css/estilos.css" rel="stylesheet" type="text/css" />
+	
+	<!-- zona para declarar nos CSS -->
+	<ui:insert name="css">
+	
+	</ui:insert>
+	
+	<!-- zona para declarar nos CSS -->
+	<ui:insert name="js">
+	
+	</ui:insert>
+
+</h:head>
+
+<h:body>
+	
+	<!-- barra container do menu -->
+	<div class="header">
+		<h:form>
+		<p:toolbar style="height: 70px; padding: 20px 20px 0 20px;">
+		<!-- zona para colocar o menu -->
+		<ui:insert name="menu">
+	 		
+	 	</ui:insert>
+	 	
+	 	
+	 		 <p:toolbarGroup align="right">  
+	 		
+	 			<h:commandLink action="#{international.mudarIdioma}" title="Português Brasileiro">
+					<h:graphicImage value="/images/pt.png" style="border:none" />
+					<f:setPropertyActionListener value="pt" target="#{international.lang}" />
+					<f:setPropertyActionListener value="BR" target="#{international.country}" />
+				</h:commandLink>
+				
+				<h:commandLink action="#{international.mudarIdioma}" title="Español">
+					<h:graphicImage value="/images/es.png" style="border:none" />
+					<f:setPropertyActionListener value="es" target="#{international.lang}" />
+					<f:setPropertyActionListener value="" target="#{international.country}" />
+				</h:commandLink>
+				
+				<h:commandLink action="#{international.mudarIdioma}" title="English">
+					<h:graphicImage value="/images/en.png" style="border:none" />
+					<f:setPropertyActionListener value="en" target="#{international.lang}" />
+					<f:setPropertyActionListener value="" target="#{international.country}" />
+				</h:commandLink>
+				
+				<h:commandLink action="#{international.mudarIdioma}" title="Italiano">
+					<h:graphicImage value="/images/it.png" style="border:none" />
+					<f:setPropertyActionListener value="it" target="#{international.lang}" />
+					<f:setPropertyActionListener value="" target="#{international.country}" />
+				</h:commandLink>
+				
+				<h:commandLink action="#{international.mudarIdioma}" title="Français">
+					<h:graphicImage value="/images/fr.png" style="border:none" />
+					<f:setPropertyActionListener value="fr" target="#{international.lang}" />
+					<f:setPropertyActionListener value="" target="#{international.country}" />
+				</h:commandLink>
+				
+				<p:themeSwitcher value="#{themeSwicher.meuTema}" effect="fade" id="statefulSwitcher" style="width: 120px;">  
+           			 <f:selectItem itemLabel="Temas" itemValue="" />  
+           			 <f:selectItems value="#{themeSwicher.themes}" />  
+            		 <p:ajax listener="#{themeSwicher.salvarTema}" />  
+        		</p:themeSwitcher>
+	 		</p:toolbarGroup>
+	 		
+	 	</p:toolbar>
+	 	</h:form>
+	 		
+	 	
+	</div>
+
+
+	<!--Conteudo geral da pagina-->
+	<!--Corpo do documento-->
+	<div id="main"><div id="conteudo">
+	
+		<ui:insert name="corpo">
+		</ui:insert>
+		
+		<br style="clear: both" />
+		</div><!-- conteudo -->
+	</div><!-- Main -->
+			
+
+	<!-- pie da página -->
+	<div id="pie">
+	 	<h:form>
+			<p:toolbar style="height: 20px; padding-top: 10px; padding-left: 20px;">
+				<p:toolbarGroup align="left" >
+					<h:outputText value="#{label.copy}" />
+				</p:toolbarGroup>
+			</p:toolbar>
+		</h:form>	
+		
+	</div>
+	
+</h:body>
+
+</html>

@@ -1,0 +1,334 @@
+@CHARSET "ISO-8859-1";
+/*estilos da pagina*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+ padding-bottom: 30px;
+ font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
+ color: #3b5998;
+ background: #026fd4 url('../images/fundo.jpg');
+}
+
+.header {
+	position: relative;
+	width: 100%;
+    min-width: 960px;
+	/*background: #003061;
+	background:-webkit-linear-gradient(top, #003061, #004fa0);
+    background:-moz-linear-gradient(top, #003061, #004fa0);
+    box-shadow: 0px 4px 4px rgba(4,4,4, 0.8);
+    height: 100px;*/
+    text-align: center;
+    
+}
+
+.menu_left {
+	position: relative;
+	float: left;
+	padding: 10px;
+	
+}
+
+.menu_right {
+	position: relative;
+	float: right;
+	padding: 10px;
+	
+}
+
+.menu_right span {
+	padding-right: 5px;
+	display: block;
+    color:  #004fa0;
+    letter-spacing: -2px;
+    text-shadow: 0px -2px 1px rgb(0, 48, 97);
+    font: bold 45px/54px sans-serif,"Book Antiqua";
+    text-align: right;
+ }
+
+
+
+ /*corpo da pagina principal*/
+ 
+#main {
+	width: 100%;
+	min-width: 960px;
+    padding: 12px 0;
+    background: #F4F4F4;
+    background-color: rgba(241,241,241, 0.8);
+}
+ 
+ 
+#conteudo {
+ 	width: 930px;
+ 	margin: 0 auto;
+    padding: 25px 25px 25px 25px;
+    border: 1px solid #E0EBF2;
+	border-radius: 5px;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+	box-shadow: 0px 0px 1px 1px rgb(120,120,120);
+ 		-moz-box-shadow: 0px 0px 1px 1px rgb(120,120,120);
+ 		-webkit-box-shadow: 0px 0px 1px 1px rgb(120,120,120);
+}
+
+#conteudo .user {
+  float: right;
+  width: 400px;
+  /*margin: 15px 20px 0 0;*/
+  padding: 10px;
+  border: 1px solid rgb(150,150,150);
+  border-radius: 5px;
+ 	-moz-border-radius:5px;
+ 	-webkit-border-radius:5px;
+ background: #f4f4f4;
+ color: rgb(50,50,50);
+}
+
+#conteudo .user h2 {
+	font-size: 12pt;
+}
+
+#contato {
+  float: left;
+  width: 450px;
+  margin: 15px 0 0 20px;
+  padding: 10px;
+  border: 1px solid rgb(150,150,150);
+  border-radius: 5px;
+ 	-moz-border-radius:5px;
+ 	-webkit-border-radius:5px;
+ background: #f4f4f4;
+ color: rgb(50,50,50);
+ }
+ 
+
+ 
+.user h2 {
+	font-size: 12pt;
+}
+
+#contato h2 {
+	font-size: 12pt;
+}
+ 
+ 
+#cad_empresa {
+ position: relative;
+ width: 380px;
+ height: 200px;
+ margin: 5px 0 0 10px;
+ border: 1px solid #ECECEC;
+ border-radius: 5px 5px 5px 5px;
+ -moz-border-radius:5px;
+ -webkit-border-radius:5px;
+ background: #F4F4F4;
+}
+
+ 
+p.tip_user {
+ color: #F5F5F5;
+ font-size: 15px;
+ text-transform: uppercase;
+ font-weight: bold;
+ padding: 10px;
+ 
+} 
+
+input.caixa_login {
+  height: 20px;
+  width: 150px;
+  padding: 2px 2px;
+  font-size: 9pt;
+  border: 1px solid #3258a9;
+}
+
+input.boton_login {
+	height: 20px;
+	width: 45px;
+	font: 11px tahoma, verdana, arial, sans-serif;
+	padding-bottom: 2px;
+    color: #F4F4F4;
+	font-weight: bold;
+	background: #034381;
+	border: 1px solid #034381;
+	box-shadow: 1px 1px 2px #000000;
+	cursor: pointer;
+}
+
+input.boton_login:hover {
+	background: #026fd4;
+	border: 1px solid #034381;
+}
+
+a {
+	font: 12px tahoma, verdana, arial, sans-serif;
+	color: #0357a7;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0357a7;
+	text-decoration: underline;
+}
+
+/*caixas de entradas iniciais*/
+.caixas_ini_a {
+	height: 25px;
+	padding: 3px 3px;
+    font: 14px tahoma, verdana, arial, sans-serif;
+    color: #114C76;
+    background: #FFFFFF;
+    border: 1px solid #d9d9d9;
+	border-top: 1px solid #c0c0c0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+}
+
+.caixas_ini_a:hover{
+	border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.caixas_ini_a:focus{
+	outline: none;
+	border: 1px solid #026fd4;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	/*#4d90fe;*/
+}
+
+.boton_ini_a {
+	width: 78px;
+    padding: 3px;
+    font: 12px tahoma, verdana, arial, sans-serif;
+	font-weight: bold;
+    color: #fff;
+    background: #3258a9;
+    border: 1px solid #3258a9;
+	border-radius: 3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	cursor: pointer;
+	/*-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);*/
+}
+
+.boton_ini_a:hover{
+	background: #026fd4;
+}
+
+
+/*Caixas da área verde*/
+.caixas_ini_v{
+	height: 25px;
+	padding: 3px 3px;
+    font: 14px tahoma, verdana, arial, sans-serif;
+    color: #114C76;
+    background: #FFFFFF;
+    border: 1px solid #d9d9d9;
+	border-top: 1px solid #c0c0c0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+}
+
+.caixas_ini_v:hover{
+	border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.caixas_ini_v:focus{
+	outline: none;
+	border: 1px solid #339900;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	/*#4d90fe;*/
+}
+
+.boton_ini_v {
+	width: 78px;
+    padding: 3px;
+    font: 12px tahoma, verdana, arial, sans-serif;
+	font-weight: bold;
+    color: #fff;
+    background: #006600;
+    border: 1px solid #006600;
+	border-radius: 3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	cursor: pointer;
+	/*-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);*/
+}
+
+.boton_ini_v:hover{
+	background: #339900;
+}
+
+.text_descri {
+	color: #222222;
+	font: 13px tahoma, verdana, arial, sans-serif;
+	padding: 0 3px 10px 0;
+	cursor: pointer;
+}
+
+ /*pie da pagina*/
+ 
+#pie {
+ 	width: 100%;
+ 	bottom : 0;
+ 	/*background: #003061;
+    background:-moz-linear-gradient(bottom, #003061, #004fa0);
+    background:-webkit-linear-gradient(bottom, #003061, #004fa0);*/
+   
+}
+
+#pie p {
+	text-align: center;
+    color: #FFFFFF;
+	font-size: 12px;
+}
+
+#pie a {
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+#pie a:hover {
+	color: #FFFFFF;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+
+
+/*************************Primefaces CSS**********************************/
+
+.ui-widget {
+   font-size: 90% !important;
+}
+
+
